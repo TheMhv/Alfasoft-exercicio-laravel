@@ -7,13 +7,14 @@ volumes:
 services:
     database:
         image: mysql:5.7
-        container_name: database
+        container_name: alfasoft-database
         environment:
             - MYSQL_HOST=mariadb
             - MYSQL_PORT=3306
             - MYSQL_DATABASE=recruitment
             - MYSQL_USER=luizmedina
             - MYSQL_PASSWORD=abc123
+            - MYSQL_ALLOW_EMPTY_PASSWORD=true
         ports:
             - '3306:3306'
         volumes:
@@ -21,7 +22,7 @@ services:
 
     server:
         build: .
-        container_name: server
+        container_name: alfasoft-server
         ports:
             - '8000:8000'
         volumes:
