@@ -3,9 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
 
-class UserFactory extends Factory
+class ContactFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,8 +14,9 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'user' => $this->faker->unique->userName(),
-            'password' => Hash::make($this->faker->randomNumber(9, true))
+            'name' => $this->faker->name(),
+            'contact' => $this->faker->unique()->randomNumber(9, true),
+            'email' => $this->faker->unique()->safeEmail()
         ];
     }
 }
